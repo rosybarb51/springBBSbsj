@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>상세 페이지</title>
+
+<link rel="stylesheet" href="/css/bootstrap.css" th:href="@{/css/bootstrap.css}">
+
+<script src="/js/jquery-3.5.1.js" th:src="@{/js/jquery-3.5.1.js}"></script>
+<script src="/js/popper.js" th:src="@{/js/popper.js}"></script>
+<script src="/js/bootstrap.js" th:src="@{/js/bootstrap.js}"></script>
+
+</head>
+<body>
+	<header>
+		<div class="container">
+			<div class="jumbotron">
+				<h1>상세 페이지</h1>
+			</div>
+		</div>
+	</header>
+	
+	<main class="container">
+		<section class="row">
+			<article class="col-sm-8 mx-auto">
+				<div class="form-group">
+					<label for="wish">위시 : </label>
+					<input type="text" class="form-control" id="wish" name="wish" th:value="${bbs.wish}" readonly>
+				</div>
+				<div class="form-grouop">
+					<label for="goalDate">목표 날짜 : </label>
+					<input type="text" class="form-control" id="goalDate" name="goalDate" th:value="${bbs.goalDate}" readonly>
+				</div>
+				<div class="clearfix">
+					<a class="btn btn-primary float-left" href="/bbs/openListBbs.do">목록</a>
+					<a class="btn btn-success float-right ml-2" href="/bbs/editBbs.do?num=" th:attrappend="href=${bbs.num}">수정</a>
+					<a class="btn btn-danger float-right" href="/bbs/removeBbs.do?num=" th:attrappend="href=${bbs.num}">삭제</a>
+				</div>
+			</article>
+		</section>
+	</main>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>위시 리스트 수정</title>
+
+<link rel="stylesheet" href="/css/bootstrap.css" th:href="@{/css/bootstrap.css}">
+
+<script src="/js/jquery-3.5.1.js" th:src="@{/js/jquery-3.5.1.js}"></script>
+<script src="/js/popper.js" th:src="@{/js/popper.js}"></script>
+<script src="/js/bootstrap.js" th:src="@{/js/bootstrap.js}"></script>
+
+<script>
+	$(document).ready(function() {
+		$("#btnCancel").on("click", function() {
+			window.history.back();
+		});
+	});
+</script>
+</head>
+<body>
+	<header>
+		<div class="container">
+			<div class="jumbotron">
+				<h1>위시 리스트 수정 페이지</h1>
+			</div>
+		</div>
+	</header>
+	
+	<main class="container">
+		<section class="row">
+			<article class="col-sm-8 mx-auto">
+				<form action="/bbs/updateBbs.do" method="POST">
+					<div class="form-group">
+						<label for="wish">위시 : </label>
+						<input type="text" class="form-control" id="wish" name="wish" th:value="${bbs.wish}">
+					</div>
+					<div class="form-grouop">
+						<label for="goalDate">목표 날짜 : </label>
+						<input type="text" class="form-control" id="goalDate" name="goalDate" th:value="${bbs.goalDate}">
+					</div>
+					
+					<input type="hidden" name="num" th:value="${bbs.num}">
+					
+					<div class="d-flex justify-content-end">
+						<button class="btn btn-secondary" id="btnCancel" type="button">취소</button>
+						<button class="btn btn-success ml-2" id="btnSubmit" type="submit">수정</button>
+					</div>
+				</form>
+			</article>
+		</section>
+	</main>
+</body>
+</html>
